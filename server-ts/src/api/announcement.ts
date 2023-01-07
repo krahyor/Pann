@@ -1,5 +1,7 @@
 import Router from "koa-router"
 const router = new Router()
+import db from "../db"
+
 router
     .get('/', async(ctx,next) => {
         ctx.body = [
