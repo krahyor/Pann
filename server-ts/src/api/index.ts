@@ -5,7 +5,7 @@ import userResult from './user_result'
 
 const apiRouter = new Router()
 apiRouter.use('/api/announcement',authMiddleware,announcement.routes())
-
+apiRouter.use('/api/userResult',authMiddleware,userResult.routes())
 export default apiRouter
 
 //เชื่อมต่อ//
