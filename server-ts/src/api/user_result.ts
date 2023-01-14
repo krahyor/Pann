@@ -1,8 +1,7 @@
 import Router from "koa-router";
-import db from "../db"
+import db from "../db";
 import { nestObject } from "./utils";
 import { AuthData } from "../auth";
-
 const router = new Router()
 
 const makeQuery = () => db('userResult').select(
@@ -14,7 +13,10 @@ const makeQuery = () => db('userResult').select(
     'announcement.pubDateTime as announcementPubDateTime'
   ).leftJoin('announcement', 'userResult.announcementId', 'announcement.id')
 
-
+  const updateUserResult = (id: number, userCode: string, data: any) => {
+    return db('userResult').where({ id, userCode }).update(data)
+  }
+  
 router
     .get('/', async (ctx,next) => {
         const authData = ctx.state.authData as AuthData
@@ -33,9 +35,39 @@ router
         }
         const userResults = await query.orderBy('id','desc')
         ctx.body = userResults.map(it => nestObject(it, 'announcement'))
-
     })
-
+    .get('/:id/markAsViewed', async (ctx, next) => {
+        const id = parseInt(ctx.params.id)
+        const authData = ctx.state.authData as AuthData
+        const viewDateTime = new Date()
+        const rowUpdated = await updateUserResult(id, authData.username, { viewDateTime })
+        if(rowUpdated == 0){
+          ctx.response.status = 404
+          return
+        }
+        ctx.body = {statusCode: 1, viewDateTime}
+    })
+    .get('/:id/acknowledge', async (ctx, next) => {
+        const id = parseInt(ctx.params.id)
+        const authData = ctx.state.authData as AuthData
+        const ackDateTime = new Date()
+        const rowUpdated = await updateUserResult(id, authData.username, { ackDateTime })
+        if(rowUpdated == 0){
+          ctx.response.status = 404
+          return
+        }
+        ctx.body = {statusCode: 1, ackDateTime}
+    })
+    .get('/:id/pin/:value', async (ctx, next) => {
+        const id = parseInt(ctx.params.id)
+        const authData = ctx.state.authData as AuthData
+        const isPinned = ctx.params.value == '1'
+        const rowUpdated = await updateUserResult(id, authData.username, { isPinned })
+        if(rowUpdated == 0){
+          ctx.response.status = 404
+          return
+        }
+        ctx.body = {statusCode: 1, isPinned}
+    })
+    
 export default router
-
-
