@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import { AuthData } from '../auth'
+import { AuthData } from 'auth'
 import Router from 'koa-router'
 import { pick } from 'lodash'
 import db from '../db'
