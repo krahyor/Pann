@@ -6,8 +6,10 @@ import { useAppCtx } from "../AppProvider";
 import { Navigate ,useLocation } from 'react-router-dom'
 import { useEffect } from "react";
 
+
 function Login() {
 
+    const Myimage = require("../image/01.jpg")
     const { userInfo, action } = useAppCtx()
     const auth = useAuth()
     const location = useLocation()
@@ -56,12 +58,22 @@ function Login() {
         }
     }
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 500}}>
-            <Button variant='contained' sx={{fontSize: 'large'}} onClick={() => void auth.signinRedirect()}>
-                <LoginIcon sx={{ mr: 1}}/>
+        <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: 791,
+            backgroundImage: `url(${Myimage})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+        }}>
+            <Button variant='contained' sx={{fontSize: 'large'}}onClick={() => void auth.signinRedirect()}>
+                <LoginIcon sx={{ mr: 3}}/>
                 Log in
             </Button>       
         </Box>
+
     )
 }
 
