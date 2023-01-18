@@ -1,9 +1,9 @@
 export default interface Announcement{
-    id: number
+    id:number
     topic: string
     description: string
     remarkIfPositive: string
-    remarkIfNegative: string 
+    remarkIfNegative: string
     pubDateTime: Date
     userCode: string
 }
