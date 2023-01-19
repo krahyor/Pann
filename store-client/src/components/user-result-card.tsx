@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import { Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, Tooltip, Typography } from "@mui/material"
+import { Button, Card, CardActionArea, CardActions, CardContent, CardHeader, colors, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, Tooltip, Typography } from "@mui/material"
 import { useState } from "react";
 import UserResult, { ResultType } from "../models/UserResult";
 import Repo from '../repositories'
@@ -50,8 +50,14 @@ function UserResultCard(props: Prop) {
     }
 
     return (
-<Box>
-      <Card sx={{ maxWidth: 500, height: 250 }}>
+    <Box>
+      <Card sx={{ maxWidth: 500, height: 250,
+        transition: 'all 0.2s ease-in-out',
+        '&:hover': {
+            backgroundColor: '#96E8FF',
+            transform: 'scale(1.05)'
+        } 
+      }}>
         <CardHeader
           sx={{ height: '30%' }}
           title={userResult.announcement?.topic}
