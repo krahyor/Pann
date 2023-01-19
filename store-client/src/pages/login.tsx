@@ -62,7 +62,7 @@ function Login() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: 791,
+            minHeight: 800,
             backgroundImage: `url(${Myimage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
