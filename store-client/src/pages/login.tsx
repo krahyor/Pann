@@ -81,7 +81,7 @@ function Login() {
           </div>
         </div>
         <div className="button-container">
-        <button className="login-button" onClick={() => void auth.signinRedirect()}>
+        <button className="glow-on-hover" onClick={() => void auth.signinRedirect()}>
             Log in
           </button>
           </div>
