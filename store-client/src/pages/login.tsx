@@ -55,7 +55,8 @@ function Login() {
                 <Navigate to={backTo} replace />
             )
         } else {
-            return <div>กรุณารอสักครู่ </div>       
+            return <div className = 'loader' ></div>
+                   
         }
     }
     return (
@@ -86,6 +87,7 @@ function Login() {
           </div>
       </div>
     </div>
+    
 
        
         </Box>
