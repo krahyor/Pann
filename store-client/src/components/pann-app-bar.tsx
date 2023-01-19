@@ -21,7 +21,7 @@ function PannAppbar() {
     return (
         <AppBar position='static'>
             <Drawer
-              anchor="left"
+              anchor="right"
               open={anchorNav}
               onClose={() => setAnchorNav(false)}
             >
