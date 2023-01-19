@@ -54,7 +54,7 @@ function Login() {
                 <Navigate to={backTo} replace />
             )
         } else {
-            return <div>Waiting for whoami </div>
+            return <div>กรุณารอสักครู่ </div>       
         }
     }
     return (
@@ -68,13 +68,13 @@ function Login() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center'
         }}>
-            <Button variant='contained' sx={{fontSize: 'large'}}onClick={() => void auth.signinRedirect()}>
+        <Button variant='contained' sx={{fontSize: 'large'}}onClick={() => void auth.signinRedirect()}>
                 <LoginIcon sx={{ mr: 3}}/>
                 Log in
             </Button>       
         </Box>
 
-    )
+    );
 }
 
 export default Login
