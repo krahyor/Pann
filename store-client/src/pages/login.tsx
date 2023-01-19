@@ -5,6 +5,7 @@ import { useAuth } from "react-oidc-context";
 import { useAppCtx } from "../AppProvider";
 import { Navigate ,useLocation } from 'react-router-dom'
 import { useEffect } from "react";
+import './Login.css'
 
 
 function Login() {
@@ -29,17 +30,17 @@ function Login() {
 
     switch (auth.activeNavigator) {
         case "signinSilent":
-            return <div>Signing you in...</div>
+            return <div>กำลังลงชื่อเข้าใช้...</div>
         case "signinRedirect":
-            return <div>Signing you out...</div>
+            return <div>กำลังออกจากระบบ...</div>
     }
 
     if (auth.isLoading){
-        return <div>Loading...</div>
+        return <div>กำลังโหลด...</div>
     }
 
     if (auth.error) {
-        return <div>Oops... {auth.error.message}</div>
+        return <div>Oh... {auth.error.message}</div>
     }
 
     if (auth.isAuthenticated) {
@@ -68,10 +69,25 @@ function Login() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center'
         }}>
-        <Button variant='contained' sx={{fontSize: 'large'}}onClick={() => void auth.signinRedirect()}>
-                <LoginIcon sx={{ mr: 3}}/>
-                Log in
-            </Button>       
+        <div className="login-container">
+      <div className="logo-button-container">
+        <div className="content-container">
+          <div className="logo-container">
+            <img src={require('../image/psu_th.png')} alt="Logo" className="logo-img" />
+          </div>
+          <div className="text-content-wrapper">
+            <div className="text-content">Announcement of scores!!!</div>
+          </div>
+        </div>
+        <div className="button-container">
+        <button className="login-button" onClick={() => void auth.signinRedirect()}>
+            Log in
+          </button>
+          </div>
+      </div>
+    </div>
+
+       
         </Box>
 
     );
