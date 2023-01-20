@@ -77,7 +77,7 @@ function Login() {
             <img src={require('../image/psu_th.png')} alt="Logo" className="logo-img" />
           </div>
           <div className="text-content-wrapper">
-            <div className="text-content">Announcement of scores!!!</div>
+            <div className="text-content">Announcement of scores and funds !!!</div>
           </div>
         </div>
         <div className="button-container">
