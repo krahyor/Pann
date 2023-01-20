@@ -8,6 +8,7 @@ import PannAppBar from "../components/pann-app-bar";
 import Announcement from "../models/announcement";
 import Repo from '../repositories'
 import AnnouncementForm from "../components/announcement-form";
+import './style.css'
 
 function AnnouncementList() {
     const auth = useAuth()
@@ -47,6 +48,7 @@ function AnnouncementList() {
     }, [searchFilter])
 
     return (
+        
         <Box sx={{ flexGrow: 1 }}>
             <PannAppBar></PannAppBar>
             <TextField sx={{ m: 2, minWidth: 120}} label='Search' placeholder="Topic, Description" variant="outlined" value={searchFilter} onChange={handleChangeSearchFilter} />
@@ -78,6 +80,7 @@ function AnnouncementList() {
                 <AnnouncementForm announcement={{}} callbackFn={onCreateAnnouncement}></AnnouncementForm>
             </Dialog>
         </Box>
+        
     )
 }
 
