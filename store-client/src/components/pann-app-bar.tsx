@@ -38,14 +38,6 @@ function PannAppbar() {
                             <ListItemText primary='Home'/>
                         </ListItemButton>
                     </ListItem>
-                    <ListItem>
-                        <ListItemButton onClick={() => navigate('/announcement')}>
-                            <ListItemIcon>
-                                <Campaign/>
-                            </ListItemIcon>
-                            <ListItemText primary="Announcement"/>
-                        </ListItemButton>
-                    </ListItem>
                 </List>
             </Drawer>
             <Toolbar>
