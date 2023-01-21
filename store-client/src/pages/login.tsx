@@ -10,7 +10,7 @@ import './Login.css'
 
 function Login() {
 
-    const Myimage = require("../image/01.jpg")
+    const Myimage = require("../image/02.jpg")
     const { userInfo, action } = useAppCtx()
     const auth = useAuth()
     const location = useLocation()
