@@ -4,6 +4,7 @@ import { useState } from "react";
 import UserResult, { ResultType } from "../models/UserResult";
 import Repo from '../repositories'
 import { CheckCircle, PushPin, Close } from "@mui/icons-material";
+import { url } from "inspector";
 
 
 interface Prop {
@@ -51,11 +52,11 @@ function UserResultCard(props: Prop) {
 
     return (
     <Box>
-      <Card sx={{ maxWidth: 500, height: 250,
+      <Card sx={{ maxWidth: 500, height: 250,backgroundColor:"#D0EEF7" ,
         transition: 'all 0.2s ease-in-out',
         '&:hover': {
             backgroundColor: '#96E8FF',
-            transform: 'scale(1.05)'
+            transform: 'scale(1.05)',
         } 
       }}>
         <CardHeader
