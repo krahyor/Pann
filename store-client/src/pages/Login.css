@@ -159,7 +159,7 @@ animate-bottom {
 }
 
 .glow-on-hover:active {
-  color: rgb(231, 3, 3)
+  color: rgb(0, 0, 0)
 }
 
 .glow-on-hover:active:after {
