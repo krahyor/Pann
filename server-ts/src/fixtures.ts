@@ -10,12 +10,17 @@ async function loadFixtures(clearData = false){
   await db.batchInsert('announcement', [
     { id: 1, topic: '240-124 Midterm 1/2566', description: 'คะแนนกลางภาควิชา Web Dev', pubDateTime: '2022-09-08 10:00:00', userCode: 'suthon.s'},
     { id: 2, topic: 'ทุนเรียนดีประจำปี 2566', description: 'test', remarkIfPositive: 'ขอแสดงความยินดีกับผุ้ได้รับทุนเรียนดีทุกคนด้วย', pubDateTime: '2022-09-09 15:00:00', userCode: 'suthon.s'},
+    { id: 3, topic: 'ทุนเรียนดีมีประเทศเอา 2566', description: 'test', remarkIfPositive: 'ยินดีด้วยคุณได้ทุนไปต่อต่างประเทศ', pubDateTime: '2023-01-22 15:00:00', userCode: 'suthon.s'},
+    { id: 4, topic: '240-123 Midterm 1/2566', description: 'คะแนนกลางภาควิชา algorithm ', pubDateTime: '2022-09-08 10:00:00', userCode: 'suthon.s'},
   ])
   
   await db.batchInsert('userResult', [
     { id: 1, announcementId: 1, result: '24.5', remark: 'โดนหักคะแนนจากการเข้าสอบสาย', updateDateTime: '2022-09-07 09:12:31', userCode: '6210110010'},
     { id: 2, announcementId: 1, result: '30.1', updateDateTime: '2022-09-07 11:12:00', userCode: '6210110227'},
     { id: 3, announcementId: 2, result: 'ได้รับทุน', remark: '', resultType: 1,  updateDateTime: '2022-09-08 10:12:30', userCode: '6210110227'},
+    { id: 4, announcementId: 2, result: 'ได้รับทุน', remark: '', resultType: 1,  updateDateTime: '2022-09-08 10:12:30', userCode: '6210110010'},
+    { id: 5, announcementId: 3, result: 'ได้รับทุนไปเรียนต่อ', remark: '', resultType: 1,  updateDateTime: '2022-09-08 10:12:30', userCode: '6210110227'},
+    { id: 6, announcementId: 4, result: '16.55', updateDateTime: '2022-09-07 11:12:00', userCode: '6210110227'},
   ])
 }
 
