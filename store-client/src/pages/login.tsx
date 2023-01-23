@@ -30,13 +30,13 @@ function Login() {
 
     switch (auth.activeNavigator) {
         case "signinSilent":
-            return <div>กำลังลงชื่อเข้าใช้...</div>
+            return <div className = 'loader' ></div>
         case "signinRedirect":
-            return <div>กำลังออกจากระบบ...</div>
+            return <div className = 'loader' ></div>
     }
 
     if (auth.isLoading){
-        return <div>กำลังโหลด...</div>
+        return <div className = 'loader' ></div>
     }
 
     if (auth.error) {
