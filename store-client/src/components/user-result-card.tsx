@@ -36,7 +36,15 @@ function UserResultCard(props: Prop) {
     }
 
     const handleToggleIsPinned = async () => {
-        const result = await Repo.userResult.toggleIsPinned(userResult.id)
+      if(userResult.isPinned){
+        const result = await Repo.userResult.toggleIsPinned(userResult.id,0)
+        if(result) {
+          props.onUpdateUserResult(result)
+        }
+        return
+      }
+      const result = await Repo.userResult.toggleIsPinned(userResult.id,1)
+
         if(result) {
           props.onUpdateUserResult(result)
         }
